@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102b4e">
+    <title>Canadian Pizza Burger | Order Online</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+</head>
+<body>
+
+    <header class="header">
+        <a class="brand" href="#home">
+            <span class="brand-icon">🍕</span>
+            <span>CANADIAN <b>PIZZA BURGER</b></span>
+        </a>
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="cart-button" id="open-cart">🛒 Cart <span id="cart-count">0</span></button>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <span class="eyebrow">FRESHLY MADE • DELICIOUSLY SERVED</span>
+                <h1>Great Taste.<br><span>Happy Moments.</span></h1>
+                <p>Hot pizzas, juicy burgers and your favourite food, freshly prepared and delivered to your doorstep.</p>
+                <a href="#menu" class="primary-button">Explore Our Menu →</a>
+                <div class="hero-points">
+                    <span>✓ Fresh ingredients</span>
+                    <span>✓ Made to order</span>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1100" alt="Freshly baked pizza">
+                <div class="photo-note">
+                    <strong>Fresh & Delicious</strong>
+                    <span>Made with love ❤️</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits">
+            <div><span>🍕</span><p>Freshly Prepared</p></div>
+            <div><span>🥬</span><p>Quality Ingredients</p></div>
+            <div><span>🛵</span><p>Home Delivery</p></div>
+            <div><span>❤️</span><p>Made With Love</p></div>
+        </section>
+
+        <section class="menu-section" id="menu">
+            <div class="section-heading">
+                <span class="eyebrow">WHAT WOULD YOU LIKE TODAY?</span>
+                <h2>Explore Our Menu</h2>
+                <p>Find your favourites and add them to your cart.</p>
+            </div>
+            <div class="menu-tools">
+                <input type="search" id="search-input" placeholder="Search pizza, burger, fries..." aria-label="Search food">
+            </div>
+            <div class="category-list" id="category-list"></div>
+            <div class="food-grid" id="food-grid"></div>
+            <p class="empty-message" id="no-results" hidden>Sorry, no matching food found. Try another search.</p>
+        </section>
+
+        <section class="offer-section" id="offers">
+            <div>
+                <span class="eyebrow">A LITTLE SOMETHING FOR YOU</span>
+                <h2>Good Food Makes<br>Every Day Better.</h2>
+                <p id="offer-text">Explore our menu and find your next favourite meal.</p>
+                <a href="#menu" class="light-button">Order Your Favourite →</a>
+            </div>
+            <div class="offer-art">🍔 🍕</div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <span class="eyebrow">WE ARE HERE FOR YOU</span>
+            <h2>Welcome to Canadian Pizza Burger</h2>
+            <p>Questions about your order? Contact the restaurant directly.</p>
+            <div class="info-grid" id="contact-info"></div>
+            <div class="map-box" id="map"></div>
+            <a class="primary-button" id="map-link" target="_blank" rel="noopener">Get Directions →</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <a class="footer-brand" href="#home">CANADIAN PIZZA BURGER</a>
+        <p>Fresh Food. Great Taste. Happy Moments.</p>
+        <p>© 2026 Canadian Pizza Burger. All rights reserved. · <a href="admin.html">Owner login</a></p>
+    </footer>
+
+    <!-- CART -->
+    <div class="overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Shopping cart">
+        <div class="drawer-header">
+            <h2>Your Cart 🛒</h2>
+            <button class="close-button" id="close-cart" aria-label="Close cart">×</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-summary">
+            <div class="summary-line"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div>
+            <div class="summary-line"><span>Delivery</span><strong id="delivery-charge">₹0</strong></div>
+            <div class="summary-line total-line"><span>Total</span><strong id="cart-total">₹0</strong></div>
+            <button class="checkout-button" id="checkout-button" disabled>Proceed to Checkout</button>
+            <button class="clear-button" id="clear-cart">Clear Cart</button>
+        </div>
+    </aside>
+
+    <!-- CHECKOUT -->
+    <div class="modal-overlay" id="checkout-overlay">
+        <div class="checkout-modal">
+            <div class="drawer-header">
+                <h2>Delivery Details</h2>
+                <button class="close-button" id="close-checkout" aria-label="Close checkout">×</button>
+            </div>
+            <form id="checkout-form">
+                <label for="customer-name">Your Name</label>
+                <input id="customer-name" type="text" placeholder="Enter your full name" required>
+
+                <label for="customer-phone">Mobile Number</label>
+                <input id="customer-phone" type="tel" placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+
+                <label for="customer-address">Delivery Address</label>
+                <textarea id="customer-address" placeholder="House number, street, area, city" rows="3" required></textarea>
+
+                <label for="customer-notes">Order Notes (Optional)</label>
+                <textarea id="customer-notes" placeholder="Any special instructions?" rows="2"></textarea>
+
+                <div class="checkout-total">Order total: <strong id="checkout-total">₹0</strong></div>
+
+                <button class="checkout-button" type="submit">Order on WhatsApp 💬</button>
+                <p class="demo-note">Order restaurant ke WhatsApp par jayega. Payment: Cash on Delivery.</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-overlay" id="success-overlay">
+        <div class="success-box">
+            <div class="success-icon">✓</div>
+            <h2>Thank You!</h2>
+            <p id="success-message"></p>
+            <button class="checkout-button" id="finish-order">Continue Shopping</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="config.js"></script>
+    <script src="store.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
